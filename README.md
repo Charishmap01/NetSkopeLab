@@ -1,30 +1,10 @@
-# NetSkopeLab1
-This Repo consists of two branches terraform and python
+This python program is used to find the top 5 most repeated IPs in a given log.
 
-Terraform branch
+First we import the modules Counter and re. The counter module is used to count the repetetions of IPs and regular expression module is used to getting the IP address from the log.
 
-The Terraform branch has a module folder where the gke cluster along with the nodepool and the variables required for it are defined.
-This module can referred and reused for creating as many clusters as required.
+we first define a function to look into the log entry and find the IP addreess. This is done using the regular
+expression module. Once the IP address is found the function the returns the IP address other wise none.
 
-While the other files consisting at the root level are network.tf, provider.tf, variables.tf and cluster.tf
+Then, we open the the file as read mode and then execute the above function to get a list of ips. We then use the Counter to count the ips from the above list and find the 5 most occured ips.
 
-network.tf
-  
-This is where the network and subnetwork are defined for the clusters.
-
-provider.tf
-  
-Terraform provider are the plugins which enables the  API calls from the terraform to the cloud where we would like to deploy the infrastructure. Here we have defined the version of the provider  and also the version of terraform that the code is compatible with.
-
-variables.tf
- 
-All the variables required for the infrastructure as code are provided  here. We can refer to these variables while executing the code.
-
-cluster.tf
-  
-This file consists of the clusters that we would like to create. This is created by referring to the module we have defined. Executing this file will create two clusters along with the nodepool.
-
-Github Actions Workflow
-  
-A sanity check pipeline is created where the pipeline executes once the code is pushed to main branch. This check validates the terraform init and terraform validate commands which ensures the code sustainability.
-
+Finally, the results of top 5 most occuring IPs will be displayed from the list.
