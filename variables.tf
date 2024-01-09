@@ -55,3 +55,7 @@ variable "node_pool1_name"{
 variable "node_pool2_name"{
     default   = "nodepool-2"
 }
+
+variable "cluster_name" {
+    default  = ["cluster-1", "cluster-2"]
+}
